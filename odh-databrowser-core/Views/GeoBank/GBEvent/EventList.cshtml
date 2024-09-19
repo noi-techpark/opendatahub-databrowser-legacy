@@ -168,20 +168,20 @@
                 <div class="form-group col-sm-12">
                     <h6>Topic<small class="btn-link pull-right" ng-click="clearTopicFilter()">Clear</small></h6>
                     <div class="btn-group-vertical" style="width:100%">
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.1" btn-checkbox>Tagungen/Vorträge</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.1" btn-checkbox>Meetings/lectures</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.2" btn-checkbox>Sport</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.3" btn-checkbox>Gastronomie/Typische Produkte</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.4" btn-checkbox>Handwerk/Brauchtum</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.5" btn-checkbox>Messen/Märkte</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.6" btn-checkbox>Theater/Vorführungen</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.7" btn-checkbox>Kurse/Bildung</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.8" btn-checkbox>Musik/Tanz</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.9" btn-checkbox>Volksfeste/Festivals</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.10" btn-checkbox>Wanderungen/Ausflüge</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.11" btn-checkbox>Führungen/Besichtigungen</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.12" btn-checkbox>Ausstellungen/Kunst</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.3" btn-checkbox>Gastronomy/regional products</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.4" btn-checkbox>Handicrafts/customs</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.5" btn-checkbox>Fairs/markets</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.6" btn-checkbox>Theater/Film/Screenings</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.7" btn-checkbox>Courses/education</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.8" btn-checkbox>Music/dance</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.9" btn-checkbox>Folk festivals/festivals</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.10" btn-checkbox>Hikes/trips</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.11" btn-checkbox>Guided tours/unguided tours</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.12" btn-checkbox>Exhibitions/art</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.13" btn-checkbox>Familie</label>
-                        <label class="btn btn-default" ng-model="checkEventTopicModel.14" btn-checkbox>Pilze sammeln</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.14" btn-checkbox>To pick mushrooms</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.15" btn-checkbox>Rental</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.16" btn-checkbox>Guestcard</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.17" btn-checkbox>Cross country skiing</label>
@@ -191,6 +191,11 @@
                         <label class="btn btn-default" ng-model="checkEventTopicModel.21" btn-checkbox>Passage</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.22" btn-checkbox>Shop</label>
                         <label class="btn btn-default" ng-model="checkEventTopicModel.23" btn-checkbox>Mountain railway</label>
+
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.24" btn-checkbox>Restaurant</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.25" btn-checkbox>Book presentation/reading</label>
+                        <label class="btn btn-default" ng-model="checkEventTopicModel.26" btn-checkbox>Paragliding flight permit</label>
+
                     </div>
                     <br />
                     <br />
@@ -448,6 +453,7 @@
                                                 </div>
                                             </div>
 
+                                            @*
                                             <div class="form-group">
                                                 <label for="inputPayMet" class="col-sm-4 control-label">PayMet</label>
                                                 <div class="col-sm-8">
@@ -460,6 +466,19 @@
                                                 <div class="col-sm-8">
                                                     <input type="text" class="form-control notextareamaxwitdth" id="inputType" ng-model="event.Type" readonly>
                                                 </div>
+                                            </div> *@
+
+                                            <div class="form-group">
+                                                <label for="inputType" class="col-sm-4 control-label">ClassificationRID</label>
+                                                <div class=" col-sm-8">
+                                                    <select class="form-control notextareamaxwitdth" id="selectClassificationRid" ng-model="event.ClassificationRID" disabled>
+                                                        <option value="null">not set</option>
+                                                        <option value="D8F5FF743D5741D1BF1F5D61671F552B">Permit</option>
+                                                        <option value="E9F80CE8CB3F481ABC7E548CF34A8C1C">Reservation</option>
+                                                        <option value="4650BDEF28D545CE8AB37138E3C45B80">Service</option>
+                                                        <option value="CE212B488FA14954BE91BBCFA47C0F06">Event</option>
+                                                    </select>
+                                                </div>
                                             </div>
 
                                             <div class="form-group">
@@ -469,19 +488,33 @@
 
                                                     <div class=" col-sm-8">
                                                         <select class="form-control notextareamaxwitdth" id="selectTopicRid" ng-model="topicrid" disabled>
-                                                            <option value="0D25868CC23242D6AC97AEB2973CB3D6">Tagungen Vorträge</option>
+                                                            <option value="0D25868CC23242D6AC97AEB2973CB3D6">Meetings/lectures</option>
                                                             <option value="162C0067811B477DA725D2F5F2D98398">Sport</option>
-                                                            <option value="252200A028C8449D9A6205369A6D0D36">Gastronomie/Typische Produkte</option>
-                                                            <option value="33BDC54BD39946F4852B3394B00610AE">Handwerk/Brauchtum</option>
-                                                            <option value="4C4961D9FC5B48EEB73067BEB9D4402A">Messen/Märkte</option>
-                                                            <option value="6884FE362C88434B9F49725E3328112B">Theater/Vorführungen</option>
-                                                            <option value="767F6F43FC394CE9A3C8A9725C6FF134">Kurse/Bildung</option>
-                                                            <option value="7E048074BA004EC58E29E330A9AA476B">Musik/Tanz</option>
-                                                            <option value="9C3449EE278C4D94AA5A7C286729DEA0">Volksfeste/Festivals</option>
-                                                            <option value="ACE8B613F2074A7BB59C0B1DD40A43CD">Wanderungen/Ausflüge</option>
-                                                            <option value="B5467FEFE5C74FA5AD32B83793A76165">Führungen/Besichtigungen</option>
-                                                            <option value="C72CE969B98947FABC99CBC7B033F28E">Ausstellungen/Kunst</option>
-                                                            <option value="D98B49DF24C342D09A8161836435CF86">Familie</option>
+                                                            <option value="252200A028C8449D9A6205369A6D0D36">Gastronomy/regional products</option>
+                                                            <option value="33BDC54BD39946F4852B3394B00610AE">Handicrafts/customs</option>
+                                                            <option value="4C4961D9FC5B48EEB73067BEB9D4402A">Fairs/markets</option>
+                                                            <option value="6884FE362C88434B9F49725E3328112B">Theater/Film/Screenings</option>
+                                                            <option value="767F6F43FC394CE9A3C8A9725C6FF134">Courses/education</option>
+                                                            <option value="7E048074BA004EC58E29E330A9AA476B">Music/dance</option>
+                                                            <option value="9C3449EE278C4D94AA5A7C286729DEA0">Folk festivals/festivals</option>
+                                                            <option value="ACE8B613F2074A7BB59C0B1DD40A43CD">Hikes/trips</option>
+                                                            <option value="B5467FEFE5C74FA5AD32B83793A76165">Guided tours/unguided tours</option>
+                                                            <option value="C72CE969B98947FABC99CBC7B033F28E">Exhibitions/art</option>
+                                                            <option value="D98B49DF24C342D09A8161836435CF86">Family</option>
+
+                                                            <option value="08A37CD6550244179510BED319C7B972">To pick mushrooms</option>
+                                                            <option value="1186AFACB68D4AEDA19487ADF62BA1BC">Restaurant</option>
+                                                            <option value="1281B6BE26C14CE8AC00D99DD77273D5">Rental</option>
+                                                            <option value="18791378F74745049C51D82E82143461">Guestcard</option>
+                                                            <option value="1CA441D2561944E5BB6BB0A477D88E79">Cross country skiing</option>
+                                                            <option value="2D54FAB93F3741C7A81107B298D8FA2D">Tasting</option>
+                                                            <option value="2E067878076C4FB0B0C17F6D731006B8">Buchvorstellung</option>
+                                                            <option value="8CE148DBE21A4F36B44B99A1498FDB5F">Bus trip/Transfer</option>
+                                                            <option value="B12E42FB1AE940539425B1A78A0818B0">Parking</option>
+                                                            <option value="B7EB85224DA445A080707D9CA2957860">Paragliding flight permit</option>
+                                                            <option value="BDF62AD595F54F0E8148894A6A1CC3CF">Passage</option>
+                                                            <option value="CA7B7B8B21C24D75B3B641DE30254AE6">Shop</option>
+                                                            <option value="F6FABAA6C6C3475FBF2157287DAA8A28">Mountain railway</option>
                                                         </select>
                                                     </div>
                                                 </div>
